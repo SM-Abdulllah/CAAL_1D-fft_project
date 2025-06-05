@@ -243,4 +243,3 @@ twiddle_factors:
     .double 0.707107, -0.707107   # W_4^1
     .double 0.0, -1.0             # W_4^2
     .double -0.707107, -0.707107  # W_4^3
-    # ... more twiddle factors ...
