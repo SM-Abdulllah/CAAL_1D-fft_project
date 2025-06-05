@@ -1,11 +1,8 @@
-# fft_vector.s - 1D FFT using RISC-V Vector Instructions
-# Based on Cooley-Tukey algorithm with vector optimizations
 
 .section .text
 .global fft_vector
 .global butterfly_vector
 
-# Main FFT function with vector instructions
 # Arguments:
 #   a0 = pointer to complex array (real and imaginary interleaved)
 #   a1 = n (size, must be power of 2)
@@ -56,7 +53,6 @@ fft_block_loop:
     mv a2, s2        # length
     mv a3, s3        # half_length
     
-    # Call vectorized butterfly
     call butterfly_vector
     
     add s4, s4, s2   # i += len
