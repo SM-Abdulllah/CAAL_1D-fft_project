@@ -1,4 +1,3 @@
-// test_fft.c - Test program for RISC-V Vector FFT
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
