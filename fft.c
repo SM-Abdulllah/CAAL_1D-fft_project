@@ -1,4 +1,4 @@
-// fft.c - 1D FFT Implementation for RISC-V with Vector Extensions
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -49,12 +49,12 @@ void bit_reverse(Complex* x, int n) {
     }
 }
 
-// Cooley-Tukey FFT (iterative implementation)
+// Cooley-Tukey (iterative implementation)
 void fft_cooley_tukey(Complex* x, int n) {
     // Bit reversal
     bit_reverse(x, n);
     
-    // FFT computation
+    // FFT working
     for (int len = 2; len <= n; len <<= 1) {
         double angle = -2 * PI / len;
         Complex wlen = cos(angle) + I * sin(angle);
@@ -182,7 +182,7 @@ void verify_fft(int n) {
     printf("Magnitude at bin 1: %.4f\n", magnitude1);
     printf("Magnitude at bin %d: %.4f\n", n-1, magnitude_n1);
     
-    // Check if energy is concentrated at expected frequencies
+    // Check energy is concentrated at expected frequencies
     double total_energy = 0;
     double peak_energy = magnitude1 * magnitude1 + magnitude_n1 * magnitude_n1;
     for (int i = 0; i < n; i++) {
